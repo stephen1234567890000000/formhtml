@@ -1,207 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inmate Registration</title>
-  </head>
-  <body>
-    <h1>Inmate Registration Form</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inmate Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f6fa;
+      margin: 0;
+      padding: 20px;
+    }
 
-    <form action="/register" method="post">
-      <h2>Personal Information</h2>
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
 
-      <label for="username">Full Name:</label><br />
-      <input type="text" id="username" name="username" required /><br /><br />
+    form {
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
 
-      <label for="password">Inmate ID:</label><br />
-      <input
-        type="password"
-        id="password"
-        name="password"
-        required
-      /><br /><br />
+    h2 {
+      color: #34495e;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
 
-      <label for="gender">Gender:</label><br />
-      <select name="gender" id="gender" required>
-        <option value="">-- Select Gender --</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option></select
-      ><br /><br />
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      color: #2c3e50;
+    }
 
-      <label for="age">Age:</label><br />
-      <input type="number" id="age" name="age" required /><br /><br />
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
 
-      <label for="dateOfBirth">Date of Birth:</label><br />
-      <input
-        type="date"
-        id="dateOfBirth"
-        name="dateOfBirth"
-        required
-      /><br /><br />
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #3498db;
+      outline: none;
+      box-shadow: 0 0 5px rgba(52,152,219,0.5);
+    }
 
-      <label for="address">Address:</label><br />
-      <textarea id="address" name="address" rows="3" required></textarea
-      ><br /><br />
+    textarea {
+      resize: vertical;
+    }
 
-      <label for="nationality">Nationality:</label><br />
-      <input
-        type="text"
-        id="nationality"
-        name="nationality"
-        required
-      /><br /><br />
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #ddd;
+      margin: 30px 0;
+    }
 
-      <label for="marital">Marital Status:</label><br />
-      <select name="marital" id="marital" required>
-        <option value="">-- Select Status --</option>
-        <option value="single">Single</option>
-        <option value="married">Married</option>
-        <option value="divorced">Divorced</option>
-        <option value="widowed">Widowed</option></select
-      ><br /><br />
+    input[type="submit"] {
+      background-color: #3498db;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
 
-      <label for="education">Highest Education:</label><br />
-      <select name="education" id="education" required>
-        <option value="">-- Select Education --</option>
-        <option value="none">None</option>
-        <option value="primary">Primary</option>
-        <option value="secondary">Secondary</option>
-        <option value="tertiary">Tertiary</option>
-        <option value="other">Other</option></select
-      ><br /><br />
+    input[type="submit"]:hover {
+      background-color: #2980b9;
+    }
 
-      <label for="religion">Religion:</label><br />
-      <select name="religion" id="religion" required>
-        <option value="">-- Select Religion --</option>
-        <option value="christianity">Christianity</option>
-        <option value="islam">Islam</option>
-        <option value="hinduism">Hinduism</option>
-        <option value="buddhism">Buddhism</option>
-        <option value="other">Other</option></select
-      ><br /><br />
+    @media (max-width: 600px) {
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Inmate Registration Form</h1>
 
-      <hr />
+  <form action="/register" method="post">
+    <h2>Personal Information</h2>
 
-      <h2>Sentence Information</h2>
+    <label for="username">Full Name:</label>
+    <input type="text" id="username" name="username" required>
 
-      <label for="number">Court Reference Number:</label><br />
-      <input type="text" id="number" name="number" required /><br /><br />
+    <label for="password">Inmate ID:</label>
+    <input type="password" id="password" name="password" required>
 
-      <label for="offense">Type of Offense:</label><br />
-      <input type="text" id="offense" name="offense" required /><br /><br />
+    <label for="gender">Gender:</label>
+    <select name="gender" id="gender" required>
+      <option value="">-- Select Gender --</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
 
-      <label for="arrestDate">Arrest Date:</label><br />
-      <input
-        type="date"
-        id="arrestDate"
-        name="arrestDate"
-        required
-      /><br /><br />
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
 
-      <label for="dateSentences">Date of Sentence:</label><br />
-      <input
-        type="date"
-        id="dateSentences"
-        name="dateSentences"
-        required
-      /><br /><br />
+    <label for="dateOfBirth">Date of Birth:</label>
+    <input type="date" id="dateOfBirth" name="dateOfBirth" required>
 
-      <label for="duration">Sentence Duration:</label><br />
-      <input type="text" id="duration" name="duration" required /><br /><br />
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" rows="3" required></textarea>
 
-      <label for="sentenceStart">Sentence Start Date:</label><br />
-      <input
-        type="date"
-        id="sentenceStart"
-        name="sentenceStart"
-        required
-      /><br /><br />
+    <label for="nationality">Nationality:</label>
+    <input type="text" id="nationality" name="nationality" required>
 
-      <label for="sentenceEnd">Sentence End Date:</label><br />
-      <input
-        type="date"
-        id="sentenceEnd"
-        name="sentenceEnd"
-        required
-      /><br /><br />
+    <label for="marital">Marital Status:</label>
+    <select name="marital" id="marital" required>
+      <option value="">-- Select Status --</option>
+      <option value="single">Single</option>
+      <option value="married">Married</option>
+      <option value="divorced">Divorced</option>
+      <option value="widowed">Widowed</option>
+    </select>
 
-      <label for="status">Legal Status:</label><br />
-      <select name="status" id="status" required>
-        <option value="">-- Select Status --</option>
-        <option value="awaitingTrial">Awaiting Trial</option>
-        <option value="convicted">Convicted</option>
-        <option value="appealPending">Appeal Pending</option></select
-      ><br /><br />
+    <label for="education">Highest Education:</label>
+    <select name="education" id="education" required>
+      <option value="">-- Select Education --</option>
+      <option value="none">None</option>
+      <option value="primary">Primary</option>
+      <option value="secondary">Secondary</option>
+      <option value="tertiary">Tertiary</option>
+      <option value="other">Other</option>
+    </select>
 
-      <hr />
+    <label for="religion">Religion:</label>
+    <select name="religion" id="religion" required>
+      <option value="">-- Select Religion --</option>
+      <option value="christianity">Christianity</option>
+      <option value="islam">Islam</option>
+      <option value="hinduism">Hinduism</option>
+      <option value="buddhism">Buddhism</option>
+      <option value="other">Other</option>
+    </select>
 
-      <h2>Prison / Cell Information</h2>
+    <hr>
 
-      <label for="prisonName">Prison Name:</label><br />
-      <input
-        type="text"
-        id="prisonName"
-        name="prisonName"
-        required
-      /><br /><br />
+    <h2>Sentence Information</h2>
 
-      <label for="cellNumber">Cell Number:</label><br />
-      <input
-        type="text"
-        id="cellNumber"
-        name="cellNumber"
-        required
-      /><br /><br />
+    <label for="number">Court Reference Number:</label>
+    <input type="text" id="number" name="number" required>
 
-      <label for="dateAdmission">Date of Admission:</label><br />
-      <input
-        type="date"
-        id="dateAdmission"
-        name="dateAdmission"
-        required
-      /><br /><br />
+    <label for="offense">Type of Offense:</label>
+    <input type="text" id="offense" name="offense" required>
 
-      <label for="inmateType">Inmate Type:</label><br />
-      <select name="inmateType" id="inmateType" required>
-        <option value="">-- Select Type --</option>
-        <option value="general">General</option>
-        <option value="narcotics">Narcotics</option>
-        <option value="corruption">Corruption</option>
-        <option value="other">Other</option></select
-      ><br /><br />
+    <label for="arrestDate">Arrest Date:</label>
+    <input type="date" id="arrestDate" name="arrestDate" required>
 
-      <hr />
+    <label for="dateSentences">Date of Sentence:</label>
+    <input type="date" id="dateSentences" name="dateSentences" required>
 
-      <h2>Health & Physical Condition</h2>
+    <label for="duration">Sentence Duration:</label>
+    <input type="text" id="duration" name="duration" required>
 
-      <label for="healthCondition">Health Condition:</label><br />
-      <select name="healthCondition" id="healthCondition" required>
-        <option value="">-- Select Condition --</option>
-        <option value="good">Good</option>
-        <option value="fair">Fair</option>
-        <option value="poor">Poor</option></select
-      ><br /><br />
+    <label for="sentenceStart">Sentence Start Date:</label>
+    <input type="date" id="sentenceStart" name="sentenceStart" required>
 
-      <label for="medicalHistory">Medical History:</label><br />
-      <textarea
-        id="medicalHistory"
-        name="medicalHistory"
-        rows="3"
-        required
-      ></textarea
-      ><br /><br />
+    <label for="sentenceEnd">Sentence End Date:</label>
+    <input type="date" id="sentenceEnd" name="sentenceEnd" required>
 
-      <label for="allergies">Allergies:</label><br />
-      <textarea id="allergies" name="allergies" rows="3" required></textarea
-      ><br /><br />
+    <label for="status">Legal Status:</label>
+    <select name="status" id="status" required>
+      <option value="">-- Select Status --</option>
+      <option value="awaitingTrial">Awaiting Trial</option>
+      <option value="convicted">Convicted</option>
+      <option value="appealPending">Appeal Pending</option>
+    </select>
 
-      <label for="specialNotes">Special Notes:</label><br />
-      <textarea id="specialNotes" name="specialNotes" rows="3"></textarea
-      ><br /><br />
+    <hr>
 
-      <input type="submit" value="Register" />
-    </form>
-  </body>
+    <h2>Prison / Cell Information</h2>
+
+    <label for="prisonName">Prison Name:</label>
+    <input type="text" id="prisonName" name="prisonName" required>
+
+    <label for="cellNumber">Cell Number:</label>
+    <input type="text" id="cellNumber" name="cellNumber" required>
+
+    <label for="dateAdmission">Date of Admission:</label>
+    <input type="date" id="dateAdmission" name="dateAdmission" required>
+
+    <label for="inmateType">Inmate Type:</label>
+    <select name="inmateType" id="inmateType" required>
+      <option value="">-- Select Type --</option>
+      <option value="general">General</option>
+      <option value="narcotics">Narcotics</option>
+      <option value="corruption">Corruption</option>
+      <option value="other">Other</option>
+    </select>
+
+    <hr>
+
+    <h2>Health & Physical Condition</h2>
+
+    <label for="healthCondition">Health Condition:</label>
+    <select name="healthCondition" id="healthCondition" required>
+      <option value="">-- Select Condition --</option>
+      <option value="good">Good</option>
+      <option value="fair">Fair</option>
+      <option value="poor">Poor</option>
+    </select>
+
+    <label for="medicalHistory">Medical History:</label>
+    <textarea id="medicalHistory" name="medicalHistory" rows="3" required></textarea>
+
+    <label for="allergies">Allergies:</label>
+    <textarea id="allergies" name="allergies" rows="3" required></textarea>
+
+    <label for="specialNotes">Special Notes:</label>
+    <textarea id="specialNotes" name="specialNotes" rows="3"></textarea>
+
+    <input type="submit" value="Register">
+  </form>
+</body>
 </html>
